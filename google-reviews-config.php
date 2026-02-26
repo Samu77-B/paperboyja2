@@ -12,7 +12,7 @@ define('CACHE_DURATION', 3600); // Cache for 1 hour (3600 seconds)
 
 // Fallback settings
 define('FALLBACK_RATING', 4.8);
-define('FALLBACK_REVIEW_COUNT', 169);
+define('FALLBACK_REVIEW_COUNT', 187);
 
 // API request settings
 define('API_TIMEOUT', 10); // seconds
