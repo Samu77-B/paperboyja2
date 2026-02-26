@@ -4,7 +4,7 @@
 
 // Google Places API Configuration
 define('GOOGLE_PLACES_API_KEY', 'AIzaSyADxPOxTWTSLPM_6x_1x1diOJOHeDEBQWY'); // Replace with your actual API key
-define('GOOGLE_PLACE_ID', 'ChIJN1t_tDeuEmsRUsoyG83frY4'); // Paperboy JA Place ID
+define('GOOGLE_PLACE_ID', 'ChIJSWP3onlA244RzZO0K3PslDk'); // Paperboy JA Place ID
 
 // Cache settings (optional - for performance)
 define('CACHE_ENABLED', true);
