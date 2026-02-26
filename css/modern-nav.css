@@ -3,14 +3,19 @@
  * Clean, contemporary navigation with mega menu
  */
 
-/* Modern Navigation Bar Styles */
+/* Modern Navigation Bar Styles — Liquid Glass */
 .modern-nav-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .modern-nav-container {
@@ -67,13 +72,13 @@
 }
 
 .nav-item-modern:hover {
-  background: #f3f4f6;
+  background: rgba(0, 174, 236, 0.08);
   color: #00aeec;
 }
 
 .nav-item-modern.active {
   color: #00aeec;
-  background: #eff6ff;
+  background: rgba(0, 174, 236, 0.1);
 }
 
 .nav-item-modern.nav-highlight {
@@ -105,9 +110,15 @@
   top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: white;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   padding: 24px;
   min-width: 900px;
   opacity: 0;
@@ -361,8 +372,10 @@
 /* Mobile Menu */
 .mobile-menu {
   display: none;
-  background: white;
-  border-top: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
