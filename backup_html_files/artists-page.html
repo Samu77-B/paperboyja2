@@ -1,0 +1,1105 @@
+
+<!DOCTYPE html>
+<html lang="en" data-wf-page="612278a737d3064940ab07cb" data-wf-site="60bd069dd4cafd2773e8ca14">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-947981377"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-947981377');
+  </script>
+  <meta charset="utf-8">
+  <title>Artists Page - Paperboy JA</title>
+  <meta content="Discover talented artists and photographers in Jamaica. Browse their portfolios and connect with professional artists for your next project." name="description">
+  <meta content="Artists Page - Paperboy JA" property="og:title">
+  <meta content="Discover talented artists and photographers in Jamaica. Browse their portfolios and connect with professional artists for your next project." property="og:description">
+  <meta content="https://paperboyja.com/images/PBlogoColour.png" property="og:image">
+  <meta content="Artists Page - Paperboy JA" property="twitter:title">
+  <meta content="Discover talented artists and photographers in Jamaica. Browse their portfolios and connect with professional artists for your next project." property="twitter:description">
+  <meta content="https://paperboyja.com/images/PBlogoColour.png" property="twitter:image">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="keywords" content="photographers Jamaica, professional photographers Kingston, wedding photographers Jamaica, portrait photographers, event photographers, commercial photographers">
+  <meta name="geo.region" content="JM-01">
+  <meta name="geo.placename" content="Kingston">
+  <meta name="geo.position" content="18.017874;-76.809904">
+  <meta name="ICBM" content="18.017874, -76.809904">
+  
+  <!-- Existing CSS Links -->
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/pbja.webflow.css" rel="stylesheet" type="text/css">
+  
+  <!-- Hamburger Menu Styling -->
+  <style>
+    /* Override hamburger menu active state with brand blue */
+    .w-nav-button.w--open {
+      background-color: #00aeec !important;
+      color: white !important;
+      border-radius: 50px !important;
+    }
+    
+    /* Make hamburger menu button smaller */
+    .w-nav-button {
+      padding: 13px !important;
+      font-size: 20px !important;
+    }
+  </style>
+  
+  <!-- Photographers Showcase Styles -->
+  <style>
+    .photographers-hero {
+      background: linear-gradient(135deg, #00AEEC 0%, #b0159c 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .photographers-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    
+    .photographers-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .photographers-grid {
+      padding: 60px 0;
+      background-color: #f8f9fa;
+    }
+    
+    .photographers-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .photographers-grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+         .photographer-card {
+       background: white;
+       border-radius: 12px;
+       overflow: hidden;
+       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+       transition: transform 0.3s ease, box-shadow 0.3s ease;
+       opacity: 0;
+       transform: translateY(30px);
+     }
+     
+     .photographer-card.animate {
+       animation: fadeInUp 0.6s ease forwards;
+     }
+     
+     @keyframes fadeInUp {
+       to {
+         opacity: 1;
+         transform: translateY(0);
+       }
+     }
+    
+    .photographer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    .photographer-image {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+         .photographer-image a {
+       display: block;
+       width: 100%;
+       height: 100%;
+       text-decoration: none;
+       color: inherit;
+     }
+     
+     .photographer-image img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       transition: transform 0.3s ease;
+     }
+     
+     .photographer-card:hover .photographer-image img {
+       transform: scale(1.05);
+     }
+    
+    .photographer-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 20px;
+      color: white;
+    }
+    
+    .photographer-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .photographer-specialty {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .photographer-info {
+      padding: 25px;
+    }
+    
+    .photographer-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .photographer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    
+    .contact-item a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-item a:hover {
+      color: #764ba2;
+    }
+    
+         .contact-icon {
+       width: 32px;
+       height: 32px;
+       opacity: 0.8;
+       margin-right: 8px;
+     }
+    
+    .photographer-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+    
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+         .filter-btn {
+       padding: 10px 20px;
+       background: #575757;
+       color: white;
+       border: none;
+       border-radius: 6px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       font-weight: 500;
+       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+     }
+     
+     .filter-btn:hover,
+     .filter-btn.active {
+       background: #333;
+       color: white;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+     }
+    
+    
+    
+    /* Image Modal Styles */
+    .image-modal {
+      display: none !important;
+      position: fixed !important;
+      z-index: 9999 !important;
+      left: 0 !important;
+      top: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: rgba(0, 0, 0, 0.9) !important;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .image-modal.show {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+    
+    .modal-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .modal-caption {
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    @media (max-width: 768px) {
+      .photographers-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .photographers-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .filters {
+        gap: 10px;
+      }
+      
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+      }
+      
+      .modal-close {
+        top: -35px;
+        font-size: 25px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+  
+  <!-- Favicon and Apple Touch Icon -->
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+</head>
+<body class="body">
+  <header id="nav" class="sticky-nav">
+    <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+      <a href="index.html" class="link-block-15 w-inline-block"><img src="images/PBJA_logo.svg" loading="lazy" alt="paperboyja_logo" class="image-47"></a>
+      <nav role="navigation" class="nav-menu w-nav-menu">
+        <a href="index.html" class="nav-link-2 w-nav-link">Home</a>
+        <div data-hover="false" data-delay="1" class="dropdown w-dropdown">
+          <div class="dropdown-toggle w-dropdown-toggle">
+            <div>Services</div>
+          </div>
+          <nav id="maindropdown" class="maindropdown w-dropdown-list">
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-7">
+                  <a href="services.html" class="plainlink">Services</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 w-dropdown-list"></nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block">
+                  <a href="business-products/business-products.html" class="plainlink">Business Products</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 nodrop doublecol w-dropdown-list">
+                <div class="twocolm w-row">
+                  <div class="column-30 w-col w-col-6">
+                    <a href="business-products/bw-colour-printing.html" class="subbutton w-dropdown-link">BW/Colour Printing</a>
+                    <a href="business-products/scanning.html" class="subbutton w-dropdown-link">Scanning</a>
+                    <a href="business-products/business-cards.html" class="subbutton w-dropdown-link">Business Cards</a>
+                    <a href="business-products/labels.html" class="subbutton w-dropdown-link">Labels</a>
+                    <a href="business-products/reports.html" class="subbutton w-dropdown-link">Reports</a>
+                    <a href="business-products/manuals.html" class="subbutton w-dropdown-link">Manuals</a>
+                    <a href="business-products/receipt-books.html" class="subbutton w-dropdown-link">Receipt Books</a>
+                    <a href="business-products/compliment-slips.html" class="subbutton w-dropdown-link">Comp slips</a>
+                  </div>
+                  <div class="column-31 w-col w-col-6">
+                    <a href="marketing-products/menus.html" class="subbutton w-dropdown-link">Menus</a>
+                    <a href="business-products/press-kits.html" class="subbutton w-dropdown-link">Press Kits</a>
+                    <a href="business-products/booklets.html" class="subbutton w-dropdown-link">Booklets</a>
+                    <a href="business-products/envelopes.html" class="subbutton w-dropdown-link">Envelopes</a>
+                    <a href="business-products/architectural-plans.html" class="subbutton w-dropdown-link">Architectural Plans</a>
+                    <a href="business-products/newsletters.html" class="subbutton w-dropdown-link">Newsletters</a>
+                    <a href="business-products/letterheads.html" class="subbutton w-dropdown-link">Letterheads</a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="plainlink textbutton">
+                  <a href="marketing-products/marketing-products.html" class="plainlink rolloverwht">Marketing Material</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 marketingdropdown w-dropdown-list">
+                <a href="marketing-products/brochures.html" class="dropdown-link subbutton w-dropdown-link">Brochures</a>
+                <a href="marketing-products/calendars.html" class="dropdown-link subbutton w-dropdown-link">Calendars</a>
+                <a href="marketing-products/catalogues.html" class="dropdown-link-2 subbutton w-dropdown-link">Catalogues</a>
+                <a href="marketing-products/flyers.html" class="dropdown-link-3 subbutton w-dropdown-link">Flyers</a>
+                <a href="marketing-products/calendars.html" class="dropdown-link-4 subbutton w-dropdown-link">Calendars</a>
+                <a href="marketing-products/magazines.html" class="dropdown-link-5 subbutton w-dropdown-link">Magazines</a>
+                <a href="business-products/newsletters.html" class="dropdown-link-7 subbutton w-dropdown-link">Newsletters</a>
+                <a href="marketing-products/standee-display.html" class="dropdown-link-3 subbutton w-dropdown-link">Standees</a>
+                <a href="marketing-products/tent-cards.html" class="dropdown-link-3 subbutton w-dropdown-link">Tent Cards</a>
+                <a href="marketing-products/magazines.html" class="dropdown-link-3 subbutton w-dropdown-link">Magazines</a>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-3">
+                  <a href="event-materials/marketing-products-copy.html" class="plainlink">Events Materials</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 dropdhaow w-dropdown-list">
+                <a href="event-materials/invitations-certificates.html" class="dropdown-link subbutton w-dropdown-link">Certificates</a>
+                <a href="event-materials/event-tickets.html" class="dropdown-link-2 subbutton w-dropdown-link">Event Tickets</a>
+                <a href="event-materials/invitations.html" class="dropdown-link-2 subbutton w-dropdown-link">Invitations</a>
+                <a href="event-materials/gift-certificates.html" class="dropdown-link-3 subbutton w-dropdown-link">Gift Certificates</a>
+                <a href="event-materials/invitations.html" class="dropdown-link-4 subbutton w-dropdown-link">Invitations</a>
+                <a href="event-materials/greetings-cards.html" class="dropdown-link-5 subbutton w-dropdown-link">Greeting Cards</a>
+                <a href="event-materials/armbands.html" class="dropdown-link-7 subbutton w-dropdown-link">Wristbands</a>
+                <a href="event-materials/programs.html" class="dropdown-link-7 subbutton w-dropdown-link">Programs</a>
+                <a href="event-materials/greetings-cards.html" class="dropdown-link-7 subbutton w-dropdown-link">Greeting Cards</a>
+                <a href="event-materials/sporting-bibs.html" class="dropdown-link-7 subbutton w-dropdown-link">Sporting Bibs</a>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-4">
+                  <a href="signs-banners/signs-banners.html" class="plainlink">Signs &amp; Banners</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 w-dropdown-list">
+                <a href="signs-banners/adhesive-banners.html" class="dropdown-link subbutton w-dropdown-link">Adhesive Banners</a>
+                <a href="signs-banners/adhesive-wall-posters.html" class="dropdown-link-2 subbutton w-dropdown-link">Adhesive Wall Posters</a>
+                <a href="signs-banners/feather-banners.html" class="dropdown-link-3 subbutton w-dropdown-link">Feather Banners</a>
+                <a href="signs-banners/hanging-banners.html" class="dropdown-link-4 subbutton w-dropdown-link">Hanging Banners</a>
+                <a href="signs-banners/indoor-banners.html" class="dropdown-link-5 subbutton w-dropdown-link">Indoor Banners</a>
+                <a href="signs-banners/mounted-banners.html" class="dropdown-link-7 subbutton w-dropdown-link">Mounted Banners</a>
+                <a href="signs-banners/outdoor-banners-stands.html" class="dropdown-link-7 subbutton w-dropdown-link">Outdoor Banners &amp; Stands</a>
+                <a href="signs-banners/retractable-banners.html" class="dropdown-link-7 subbutton w-dropdown-link">Retractable Banners</a>
+                <a href="signs-banners/step-and-repeat-banners.html" class="dropdown-link-7 subbutton w-dropdown-link">Step &amp; Repeat Banners</a>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-5">
+                  <a href="identification-cards/identification-cards.html" class="plainlink">Identification Cards</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 w-dropdown-list">
+                <a href="identification-cards/composite-cards.html" class="dropdown-link subbutton w-dropdown-link">Composite Cards</a>
+                <a href="identification-cards/composite-magnetic-strip-cards.html" class="dropdown-link-2 subbutton w-dropdown-link">Composite Magnetic Strip Cards</a>
+                <a href="identification-cards/loyalty-cards.html" class="dropdown-link-3 subbutton w-dropdown-link">Loyalty Cards</a>
+                <a href="identification-cards/pvc-cards.html" class="dropdown-link-4 subbutton w-dropdown-link">PVC Cards</a>
+                <a href="identification-cards/pvc-coloured-cards.html" class="dropdown-link-5 subbutton w-dropdown-link">PVC Coloured Cards</a>
+                <a href="identification-cards/pvc-magnetic-strip-cards.html" class="dropdown-link-7 subbutton w-dropdown-link">PVC Magnetic Strip Cards</a>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-6">
+                  <a href="photo-printing/photo-printing.html" class="plainlink">Photo Printing</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 w-dropdown-list">
+                <a href="photo-printing/canvas-printing.html" class="dropdown-link subbutton w-dropdown-link">Canvas Printing</a>
+                <a href="photo-printing/photo-prints.html" class="dropdown-link-2 subbutton w-dropdown-link">Photo Prints</a>
+                <a href="photo-printing/posters.html" class="dropdown-link-3 subbutton w-dropdown-link">Posters</a>
+              </nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-8">
+                  <a href="accessories/accessories.html" class="plainlink">Accessories</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 acccesdropdown w-dropdown-list"></nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-8">
+                  <a href="../artists-page.html" class="plainlink">Artists Page</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 acccesdropdown w-dropdown-list"></nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-8">
+                  <a href="folding-specications.html" class="plainlink">Folding Specs</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 acccesdropdown w-dropdown-list"></nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-8">
+                  <a href="graphic-design-service.html" class="plainlink">Graphic Design</a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 acccesdropdown w-dropdown-list"></nav>
+            </div>
+            <div data-hover="true" data-delay="0" class="dropbutt w-dropdown">
+              <div class="dropbutt w-dropdown-toggle">
+                <div class="text-block-7">
+                  <a href="https://www.paperboyja.com/ExhibitorsCat_2023.pdf" target="_blank" rel="noopener" class="plainlink">Exhibitors Catalogue </a>
+                </div>
+              </div>
+              <nav class="dropdown-list-2 w-dropdown-list"></nav>
+            </div>
+          </nav>
+        </div>
+        <a href="contact.html" class="highlightedtetbutt w-nav-link">Contact</a>
+        <a href="templates/templates.html" class="nav-link-3 w-nav-link">Templates</a>
+        <a href="jobs.html" class="nav-link-3 w-nav-link">Jobs</a>
+        <a href="support.html" class="nav-link-3 w-nav-link">Support</a>
+      </nav>
+      <div class="w-nav-button">
+        <div class="icon-2 w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </header>
+
+     <!-- Hero Section -->
+   <section class="photographers-hero">
+     <div class="photographers-container">
+       <h1>Discover Jamaica's Finest Artists and Photographers</h1>
+       <p>Connect with talented artists and photographers who create beautiful works with artistry and skill</p>
+     </div>
+   </section>
+
+
+
+  <!-- Filters Section -->
+  <section class="photographers-grid">
+    <div class="photographers-container">
+
+
+             <div class="photographers-grid-layout" id="photographers-grid">
+                                      <!-- MELB Design Ideation Studio -->
+           <div class="photographer-card" data-category="design customer-experience greeting-cards">
+             <div class="photographer-image">
+               <a href="https://www.mideationstudio.com/" target="_blank" rel="noopener">
+                 <img src="images/Photographers/mideation-studio.jpg" alt="MELB Design Ideation Studio">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">MELB Design Ideation Studio</div>
+                   <div class="photographer-specialty">Customer Experience Design & Greeting Cards</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Founded by Michael Bonnick, MELB Design Ideation Studio creates engaging customer experiences through the power of design and storytelling. Their signature greeting card collection is featured in Jamaica's most respected hotels including The Jamaica Pegasus Hotel, Jakes Hotel, Half Moon Hotel and Tryall Hotel.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                  <a href="https://www.mideationstudio.com/" target="_blank" rel="noopener">mideationstudio.com</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Industrial</div>
+                  <div class="stat-label">Designer (MA)</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Design</div>
+                  <div class="stat-label">Educator (QTS)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                      <!-- Alpha Institute -->
+           <div class="photographer-card" data-category="photography">
+             <div class="photographer-image">
+               <img src="images/Photographers/alphainstitute.png" alt="Alpha Institute">
+               <div class="photographer-overlay">
+                 <div class="photographer-name">Alpha Institute</div>
+                 <div class="photographer-specialty">Limited Edition Posters</div>
+               </div>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Alpha Institute specializes in creating beautiful Limited Edition Posters with artistic vision and attention to detail. Available in 3 sizes: A1, A2 & A3. Poster is for sale - contact us for more details.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/phoneIcon.png" alt="Phone" class="contact-icon">
+                  <a href="tel:+18769302200">+1 (876) 930-2200</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/phoneIcon.png" alt="WhatsApp" class="contact-icon">
+                  <a href="https://wa.me/18765491133" target="_blank" rel="noopener">+1 (876) 549-1133 (WhatsApp)</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/emailIcon.png" alt="Email" class="contact-icon">
+                  <a href="mailto:servicebureau@alphainstitute.co">servicebureau@alphainstitute.co</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Limited</div>
+                  <div class="stat-label">Edition Posters</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">11.69 x 16.53 in</div>
+                  <div class="stat-label">Available Size</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                      <!-- Photographer 2 - Abigail Grace -->
+           <div class="photographer-card" data-category="portrait event photography">
+             <div class="photographer-image">
+               <a href="https://capturedbyjoy5966.mypixieset.com/" target="_blank" rel="noopener">
+                 <img src="images/Photographers/Abigail Grace.jpg" alt="Abigail Grace Photography">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">Abigail Grace</div>
+                   <div class="photographer-specialty">Portrait & Event Photography</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Professional photographer specializing in portrait and event photography. Abigail Grace captures beautiful moments and creates lasting memories through her artistic vision and attention to detail.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                  <a href="https://capturedbyjoy5966.mypixieset.com/" target="_blank" rel="noopener">capturedbyjoy5966.mypixieset.com</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Portrait</div>
+                  <div class="stat-label">Photography</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Event</div>
+                  <div class="stat-label">Photography</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                   <!-- Photographer 2 - Will Twort -->
+          <div class="photographer-card" data-category="commercial advertising">
+            <div class="photographer-image">
+              <a href="https://www.willtwortphoto.com" target="_blank" rel="noopener">
+                <img src="images/Photographers/Will Twort.jpg" alt="Will Twort Photography">
+                <div class="photographer-overlay">
+                  <div class="photographer-name">Will Twort</div>
+                  <div class="photographer-specialty">Commercial & Advertising Photography</div>
+                </div>
+              </a>
+            </div>
+           <div class="photographer-info">
+             <p class="photographer-description">Professional commercial and advertising photographer based in Jamaica. Will brings a fresh perspective to commercial photography, specializing in creating compelling visual content for brands and businesses.</p>
+             <div class="photographer-contact">
+               <div class="contact-item">
+                 <img src="images/emailIcon.png" alt="Email" class="contact-icon">
+                 <a href="mailto:info@willtwortphoto.com">info@willtwortphoto.com</a>
+               </div>
+               <div class="contact-item">
+                 <img src="images/phoneIcon.png" alt="Phone" class="contact-icon">
+                 <a href="tel:+18764827991">+1 (876) 482-7991</a>
+               </div>
+               <div class="contact-item">
+                 <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                 <a href="https://www.willtwortphoto.com" target="_blank" rel="noopener">willtwortphoto.com</a>
+               </div>
+             </div>
+             <div class="photographer-stats">
+               <div class="stat">
+                 <div class="stat-number">100+</div>
+                 <div class="stat-label">Projects</div>
+               </div>
+                               <div class="stat">
+                  <div class="stat-number">9</div>
+                  <div class="stat-label">Years Industry Experience</div>
+                </div>
+             </div>
+           </div>
+         </div>
+
+                                       <!-- Photographer 2 - David Lee -->
+           <div class="photographer-card" data-category="underwater cinematography">
+             <div class="photographer-image">
+               <a href="https://www.davidleeunderwater.com/TheArtist.html" target="_blank" rel="noopener">
+                 <img src="images/Photographers/David Lee.jpg" alt="David Lee Underwater Photography">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">David Lee</div>
+                   <div class="photographer-specialty">Underwater Photographer & Cinematographer</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Jamaican-born underwater photographer, cinematographer, and ocean explorer with over 40 years of marine experience. David captures intimate and powerful moments in the marine world, using film to inspire, educate, and advocate for the planet's fragile underwater ecosystems.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/emailIcon.png" alt="Email" class="contact-icon">
+                  <a href="mailto:davidleeunderwater@gmail.com">davidleeunderwater@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/phoneIcon.png" alt="Phone" class="contact-icon">
+                  <a href="tel:+18762985675">+1 (876) 298-5675</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                  <a href="https://www.davidleeunderwater.com/TheArtist.html" target="_blank" rel="noopener">davidleeunderwater.com</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">40+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">1000+</div>
+                  <div class="stat-label">Dives</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                     <!-- Photographer 3 - Simon Mais -->
+           <div class="photographer-card" data-category="art photography">
+             <div class="photographer-image">
+               <a href="https://www.instagram.com/fearlessartja" target="_blank" rel="noopener">
+                 <img src="images/Photographers/Simon Mais.png" alt="Simon Mais Photography">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">Simon Mais</div>
+                   <div class="photographer-specialty">Art Photography</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Creative art photographer capturing unique perspectives and artistic expressions. Simon's work showcases a distinctive vision that transforms ordinary moments into extraordinary visual stories.</p>
+                             <div class="photographer-contact">
+                 <div class="contact-item">
+                   <img src="images/instaIcon.png" alt="Instagram" class="contact-icon">
+                   <a href="https://www.instagram.com/fearlessartja" target="_blank" rel="noopener">@fearlessartja</a>
+                 </div>
+               </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Art</div>
+                  <div class="stat-label">Photography</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Creative</div>
+                  <div class="stat-label">Vision</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                     <!-- Photographer 4 - Ulrick Lawrence -->
+           <div class="photographer-card" data-category="fine art">
+             <div class="photographer-image">
+               <a href="https://www.ulricklawrence.com" target="_blank" rel="noopener">
+                 <img src="images/Photographers/Ulrick Lawrence.png" alt="Ulrick Lawrence Fine Art Photography">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">Ulrick Lawrence</div>
+                   <div class="photographer-specialty">Fine Art Photography</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Born in Franklyn Town, Kingston, Jamaica, Ulrick Lawrence brings a unique perspective to fine art photography. His work reflects his deep connection to his Jamaican roots and his journey from childhood in the back room of his father's bar to becoming a distinguished fine art photographer.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/emailIcon.png" alt="Email" class="contact-icon">
+                  <a href="mailto:info@ulricklawrence.com">info@ulricklawrence.com</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/phoneIcon.png" alt="Phone" class="contact-icon">
+                  <a href="tel:+18763759332">+1 (876) 375-9332</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                  <a href="https://www.ulricklawrence.com" target="_blank" rel="noopener">ulricklawrence.com</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Fine</div>
+                  <div class="stat-label">Art</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Jamaican</div>
+                  <div class="stat-label">Heritage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                           <!-- Photographer 5 - Mr T Tracey -->
+            <div class="photographer-card" data-category="aerial landscape">
+              <div class="photographer-image">
+                <a href="https://www.instagram.com/ttraceymedia/profilecard/" target="_blank" rel="noopener">
+                  <img src="images/Photographers/Mr T Tracey.png" alt="Mr T Tracey Aerial Photography">
+                  <div class="photographer-overlay">
+                    <div class="photographer-name">Mr T Tracey</div>
+                    <div class="photographer-specialty">Aerial & Landscape Photography & Videography</div>
+                  </div>
+                </a>
+              </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Professional drone pilot specializing in aerial and landscape photography and videography. Mr T Tracey captures stunning perspectives from above, creating compelling visual content for automotive and landscape projects with a unique aerial viewpoint.</p>
+                             <div class="photographer-contact">
+                 <div class="contact-item">
+                   <img src="images/instaIcon.png" alt="Instagram" class="contact-icon">
+                   <a href="https://www.instagram.com/ttraceymedia/profilecard/" target="_blank" rel="noopener">Contact through Instagram</a>
+                 </div>
+               </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Aerial</div>
+                  <div class="stat-label">Photography</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Drone</div>
+                  <div class="stat-label">Pilot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                     <!-- Artist 6 - Andrew Crosse -->
+           <div class="photographer-card" data-category="illustration visual-development">
+             <div class="photographer-image">
+               <a href="https://www.instagram.com/benjamin_crosse/" target="_blank" rel="noopener">
+                 <img src="images/Photographers/Ben Crosse.png" alt="Andrew Crosse Illustration">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">Andrew Crosse</div>
+                   <div class="photographer-specialty">Professional VisDev Illustrator</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Andrew Crosse, born in USA 2001, is a Jamaican illustrator and visual development artist. "I love to see my imaginations come to life and drawing just happens to be my most effective way to get that done."</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/instaIcon.png" alt="Instagram" class="contact-icon">
+                  <a href="https://www.instagram.com/benjamin_crosse/" target="_blank" rel="noopener">@benjamin_crosse</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">VisDev</div>
+                  <div class="stat-label">Artist</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Jamaican</div>
+                  <div class="stat-label">Illustrator</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                     <!-- Artist 7 - Kevin Ho -->
+           <div class="photographer-card" data-category="watercolor fine-art portraits">
+             <div class="photographer-image">
+               <a href="https://www.kevinhofineart.com/" target="_blank" rel="noopener">
+                 <img src="images/Photographers/Kevin Ho.jpg" alt="Kevin Ho Fine Art">
+                 <div class="photographer-overlay">
+                   <div class="photographer-name">Kevin Ho</div>
+                   <div class="photographer-specialty">Watercolor & Pencil Fine Art</div>
+                 </div>
+               </a>
+             </div>
+            <div class="photographer-info">
+              <p class="photographer-description">Known for detailed watercolor and pencil portraits that closely capture likeness and individuality, as well as landscapes that preserve special places and moments—creating meaningful artworks for personal collections and unforgettable gift giving experiences.</p>
+              <div class="photographer-contact">
+                <div class="contact-item">
+                  <img src="images/emailIcon.png" alt="Email" class="contact-icon">
+                  <a href="mailto:mail@kevinhofineart.com">mail@kevinhofineart.com</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/WW_icon.png" alt="Website" class="contact-icon">
+                  <a href="https://www.kevinhofineart.com/" target="_blank" rel="noopener">kevinhofineart.com</a>
+                </div>
+                <div class="contact-item">
+                  <img src="images/instaIcon.png" alt="Instagram" class="contact-icon">
+                  <a href="https://www.instagram.com/kevinhofineart/" target="_blank" rel="noopener">@kevinhofineart</a>
+                </div>
+              </div>
+              <div class="photographer-stats">
+                <div class="stat">
+                  <div class="stat-number">Watercolor</div>
+                  <div class="stat-label">Portraits</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">Fine Art</div>
+                  <div class="stat-label">Landscapes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                 </div>
+     </div>
+   </section>
+
+
+
+       <!-- Links Disclaimer Section -->
+    <section style="padding: 40px 0; background-color: #f8f9fa; text-align: center;">
+      <div class="photographers-container">
+        <a href="#" id="links-disclaimer" style="color: #667eea; text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: color 0.3s ease;">Links on this site</a>
+        
+        <!-- Disclaimer Content -->
+        <div id="disclaimer-content" style="max-height: 0; overflow: hidden; margin-top: 0; padding: 0 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; transition: all 0.4s ease-in-out; opacity: 0;">
+          <div style="padding: 20px 0;">
+            <h3 style="margin-bottom: 15px; color: #333; font-size: 1.2rem;">Links Disclaimer</h3>
+            <div style="line-height: 1.6; color: #666; font-size: 0.95rem;">
+              <p style="margin-bottom: 12px;">Our Aim is to give visitors to our website the opportunity to see local Jamaican photographers talent and visit their respective pages.</p>
+              <p style="margin-bottom: 12px;">These sites may provide links to other websites and online resources. We are not responsible for and do not endorse such external sites or resources.</p>
+              <p style="margin-bottom: 12px;">Once you click one of these links "Your" use of third-party websites and resources is at your own risk.</p>
+              <p style="margin-bottom: 0;">Please visit our <a href="terms-and-conditions.html" style="color: #667eea;">Terms and Conditions</a> page for a full explanation on the use of our site.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Footer -->
+  <div id="Footer" class="footer">
+    <div class="columns-2 w-row">
+      <div class="column w-col w-col-4 w-col-medium-4 w-col-small-small-stack w-col-tiny-tiny-stack">
+        <a href="https://paperboyja.com/2019_artwork_guidelines_.pdf" class="whtlink">Design Printing Guides</a>
+        <a href="contact.html" class="whtlink">Contact</a>
+        <a href="terms-and-conditions.html" class="whtlink">Terms and Conditions</a>
+        <a href="terms-of-supply.html" class="whtlink">Terms of Supply</a>
+        <a href="https://www.paperboyja.com/ExhibitorsCat_2023.pdf" target="_blank" rel="noopener" class="whtlink">Exhibitors Catalogue</a>
+        <a href="privacy-policy.html" class="whtlink">Privacy Policy</a>
+        <a href="cookie-policy.html" class="whtlink">Cookie Policy</a>
+        <a href="jobs.html" class="whtlink">Jobs</a>
+        <a href="#" class="whtlink">FAQ</a>
+      </div>
+      <div class="column-2 w-col w-col-4 w-col-medium-4 w-col-small-small-stack w-col-tiny-tiny-stack">
+        <div class="text-block-27">Copyright 2025 Paperboy JA</div>
+      </div>
+      <div class="column-3 w-col w-col-4 w-col-medium-4 w-col-small-small-stack w-col-tiny-tiny-stack">
+        <div class="columns-6 w-row">
+          <div class="column-8 w-col w-col-4">
+            <a href="https://www.instagram.com/paperboyja/" target="_blank" rel="noopener" class="w-inline-block" aria-label="Follow us on Instagram"><img src="images/instagram.png" loading="lazy" width="64" alt="Instagram"></a>
+          </div>
+          <div class="column-9 w-col w-col-4">
+            <a href="https://www.facebook.com/paperboyJA/" target="_blank" rel="noopener" class="w-inline-block" aria-label="Follow us on Facebook"><img src="images/facebook.png" loading="lazy" width="62" alt="Facebook"></a>
+          </div>
+          <div class="w-col w-col-4">
+            <a href="https://wa.me/18765918676" class="link-block-14 w-inline-block" aria-label="Contact us on WhatsApp"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60bd069dd4cafd2773e8ca14" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js"></script>
+  
+  <!-- Photographers Showcase JavaScript -->
+  <script>
+
+
+         document.addEventListener('DOMContentLoaded', function() {
+       const filterButtons = document.querySelectorAll('.filter-btn');
+       const photographerCards = document.querySelectorAll('.photographer-card');
+       
+               // Intersection Observer for card animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              const card = entry.target;
+              card.style.animationDelay = `${index * 0.1}s`;
+              card.classList.add('animate');
+              cardObserver.unobserve(card); // Only animate once
+            }
+          });
+        }, observerOptions);
+        
+        // Observe all photographer cards
+        photographerCards.forEach(card => {
+          cardObserver.observe(card);
+        });
+       
+               // Filter functionality
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter cards with animation
+            let visibleCards = [];
+            photographerCards.forEach(card => {
+              const categories = card.getAttribute('data-category');
+              if (filter === 'all' || categories.includes(filter)) {
+                card.style.display = 'block';
+                visibleCards.push(card);
+              } else {
+                card.style.display = 'none';
+              }
+            });
+            
+                         // Animate visible cards with staggered effect
+             visibleCards.forEach((card, index) => {
+               card.style.opacity = '0';
+               card.style.transform = 'translateY(30px)';
+               card.classList.remove('animate');
+               setTimeout(() => {
+                 card.style.animationDelay = `${index * 0.1}s`;
+                 card.classList.add('animate');
+               }, index * 100);
+             });
+          });
+        });
+      
+      // Smooth scroll for anchor links (excluding disclaimer link and alpha image link)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        if (anchor.id !== 'links-disclaimer' && anchor.id !== 'alphaImageLink') {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }
+          });
+        }
+      });
+
+      // Disclaimer functionality
+      const disclaimerLink = document.getElementById('links-disclaimer');
+      const disclaimerContent = document.getElementById('disclaimer-content');
+
+      // Toggle disclaimer content with smooth reveal
+      disclaimerLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isHidden = disclaimerContent.style.maxHeight === '0px' || disclaimerContent.style.maxHeight === '';
+        
+        if (isHidden) {
+          // Reveal the content
+          disclaimerContent.style.maxHeight = '300px';
+          disclaimerContent.style.marginTop = '20px';
+          disclaimerContent.style.opacity = '1';
+          disclaimerLink.textContent = 'Hide Links Disclaimer';
+        } else {
+          // Hide the content
+          disclaimerContent.style.maxHeight = '0px';
+          disclaimerContent.style.marginTop = '0px';
+          disclaimerContent.style.opacity = '0';
+          disclaimerLink.textContent = 'Links on this site';
+        }
+      });
+    });
+  </script>
+  
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'AW-947981377');
+  </script>
+</body>
+</html>

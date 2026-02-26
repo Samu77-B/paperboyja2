@@ -1,0 +1,8 @@
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW PWPROTECTID:OS434pd63D
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile /home/u635674544/domains/paperboyja.com/public_html/hidden/gen/.htpasswd
+Require valid-user
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE OS434pd63D:PWPROTECTID
+

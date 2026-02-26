@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Reviews Test - Paperboy JA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .rating-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffc107;
+            display: block;
+        }
+        .rating-stars {
+            font-size: 2em;
+            color: #ffc107;
+            margin: 10px 0;
+        }
+        .rating-count {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .reviews-carousel {
+            margin: 30px 0;
+        }
+        .review-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .review-text {
+            line-height: 1.6;
+            color: #333;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .test-controls {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+    </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link href="css/modern-nav.css" rel="stylesheet" type="text/css">
+  
+  <!-- Force Cart Widget to Display -->
+  <style>
+    .ec-cart-widget {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      min-height: 30px !important;
+    }
+    .ec-cart-widget * {
+      visibility: visible !important;
+    }
+  </style>
+  
+  <!-- Hamburger Menu Styling -->
+  <style>
+    /* Override hamburger menu active state with brand blue */
+    .w-nav-button.w--open {
+      background-color: #00aeec !important;
+      color: white !important;
+      border-radius: 50px !important;
+    }
+    
+    /* Make hamburger menu button smaller */
+    .w-nav-button {
+      padding: 13px !important;
+      font-size: 20px !important;
+    }
+  </style>
+  </head>
+<body>
+  <!-- Modern Navigation Bar -->
+  <header id="modern-nav" class="modern-nav-header">
+    <div class="modern-nav-container">
+      <!-- Logo Section -->
+      <div class="nav-logo-section">
+        <a href="index.html" class="nav-logo-link-modern">
+          <img src="images/PBJA_logo.svg" loading="lazy" alt="Paperboy JA Logo" class="nav-logo-img">
+        </a>
+      </div>
+
+      <!-- Main Navigation Menu -->
+      <nav class="nav-menu-modern">
+        <a href="index.html" class="nav-item-modern active">Home</a>
+        
+        <!-- Services Mega Menu -->
+        <div class="nav-item-dropdown">
+          <button class="nav-item-modern dropdown-trigger">
+            Services
+            <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="mega-menu">
+            <div class="mega-menu-content">
+              <div class="mega-menu-column">
+                <h3 class="mega-menu-title">Business Products</h3>
+                <a href="business-products/bw-colour-printing.html" class="mega-menu-link">BW/Colour Printing</a>
+                <a href="business-products/scanning.html" class="mega-menu-link">Scanning</a>
+                <a href="business-products/business-cards.html" class="mega-menu-link">Business Cards</a>
+                <a href="business-products/labels.html" class="mega-menu-link">Labels</a>
+                <a href="business-products/reports.html" class="mega-menu-link">Reports</a>
+                <a href="business-products/manuals.html" class="mega-menu-link">Manuals</a>
+                <a href="business-products/receipt-books.html" class="mega-menu-link">Receipt Books</a>
+                <a href="business-products/compliment-slips.html" class="mega-menu-link">Comp Slips</a>
+              </div>
+              <div class="mega-menu-column">
+                <h3 class="mega-menu-title">Marketing Material</h3>
+                <a href="marketing-products/brochures.html" class="mega-menu-link">Brochures</a>
+                <a href="marketing-products/calendars.html" class="mega-menu-link">Calendars</a>
+                <a href="marketing-products/catalogues.html" class="mega-menu-link">Catalogues</a>
+                <a href="marketing-products/flyers.html" class="mega-menu-link">Flyers</a>
+                <a href="marketing-products/magazines.html" class="mega-menu-link">Magazines</a>
+                <a href="business-products/newsletters.html" class="mega-menu-link">Newsletters</a>
+                <a href="marketing-products/standee-display.html" class="mega-menu-link">Standees</a>
+                <a href="marketing-products/tent-cards.html" class="mega-menu-link">Tent Cards</a>
+              </div>
+              <div class="mega-menu-column">
+                <h3 class="mega-menu-title">Events & More</h3>
+                <a href="event-materials/invitations-certificates.html" class="mega-menu-link">Certificates</a>
+                <a href="event-materials/event-tickets.html" class="mega-menu-link">Event Tickets</a>
+                <a href="event-materials/invitations.html" class="mega-menu-link">Invitations</a>
+                <a href="event-materials/gift-certificates.html" class="mega-menu-link">Gift Certificates</a>
+                <a href="event-materials/greetings-cards.html" class="mega-menu-link">Greeting Cards</a>
+                <a href="event-materials/armbands.html" class="mega-menu-link">Wristbands</a>
+                <a href="event-materials/programs.html" class="mega-menu-link">Programs</a>
+                <a href="event-materials/sporting-bibs.html" class="mega-menu-link">Sporting Bibs</a>
+              </div>
+              <div class="mega-menu-column">
+                <h3 class="mega-menu-title">Signs & Printing</h3>
+                <a href="signs-banners/retractable-banners.html" class="mega-menu-link">Retractable Banners</a>
+                <a href="signs-banners/hanging-banners.html" class="mega-menu-link">Hanging Banners</a>
+                <a href="signs-banners/x-banner-stand.html" class="mega-menu-link">X Banner Stand</a>
+                <a href="signs-banners/outdoor-banners-stands.html" class="mega-menu-link">Outdoor Banners</a>
+                <a href="photo-printing/photo-prints.html" class="mega-menu-link">Photo Prints</a>
+                <a href="photo-printing/posters.html" class="mega-menu-link">Posters</a>
+                <a href="photo-printing/canvas-printing.html" class="mega-menu-link">Canvas Printing</a>
+              </div>
+              <div class="mega-menu-column">
+                <h3 class="mega-menu-title">ID & Accessories</h3>
+                <a href="identification-cards/pvc-cards.html" class="mega-menu-link">PVC ID Cards</a>
+                <a href="identification-cards/composite-cards.html" class="mega-menu-link">Composite ID Cards</a>
+                <a href="identification-cards/loyalty-cards.html" class="mega-menu-link">Loyalty Cards</a>
+                <a href="accessories/business-card-boxes.html" class="mega-menu-link">Business Card Boxes</a>
+                <a href="accessories/binding.html" class="mega-menu-link">Binding</a>
+                <a href="accessories/lanyards.html" class="mega-menu-link">Lanyards</a>
+                <a href="accessories/pouches.html" class="mega-menu-link">Pouches</a>
+                <a href="accessories/retrackable-clips.html" class="mega-menu-link">Retractable Clips</a></div>
+            </div>
+            <!-- Featured Artists Link -->
+            <div class="mega-menu-featured">
+              <a href="artists-page.html" class="mega-menu-featured-link">
+                <span class="featured-text">Discover Jamaica's Artists & Photographers</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="contact.html" class="nav-item-modern nav-highlight">Contact</a>
+        <a href="templates/templates.html" class="nav-item-modern">Templates</a>
+        <a href="jobs.html" class="nav-item-modern">Jobs</a>
+        <a href="support.html" class="nav-item-modern">Support</a>
+      </nav>
+
+      <!-- Right Section: Search & Cart -->
+      <div class="nav-right-section">
+        <button class="nav-search-btn" id="searchToggle">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-cart-wrapper">
+          <div class="ec-cart-widget"></div>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-overlay-content">
+        <button class="search-close" id="searchClose">&times;</button>
+        <div id="my-search-64309912"></div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-menu-item">Home</a>
+      <div class="mobile-menu-dropdown">
+        <button class="mobile-menu-item mobile-dropdown-trigger">Services</button>
+        <div class="mobile-submenu">
+          <a href="business-products/business-cards.html" class="mobile-submenu-item">Business Cards</a>
+          <a href="signs-banners/signs-banners.html" class="mobile-submenu-item">Signs & Banners</a>
+          <a href="photo-printing/photo-printing.html" class="mobile-submenu-item">Photo Printing</a>
+          <a href="identification-cards/identification-cards.html" class="mobile-submenu-item">ID Cards</a>
+          <a href="marketing-products/marketing-products.html" class="mobile-submenu-item">Marketing Products</a>
+          <a href="event-materials/marketing-products-copy.html" class="mobile-submenu-item">Event Materials</a>
+        </div>
+      </div>
+      <a href="contact.html" class="mobile-menu-item">Contact</a>
+      <a href="templates/templates.html" class="mobile-menu-item">Templates</a>
+      <a href="jobs.html" class="mobile-menu-item">Jobs</a>
+      <a href="support.html" class="mobile-menu-item">Support</a>
+      <a href="artists-page.html" class="mobile-menu-item mobile-menu-featured">Discover Jamaica's Artists & Photographers</a>
+    </div>
+  </header>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div class="container">
+        <h1>Google Reviews Integration Test</h1>
+        <p>This page tests the Google Reviews integration for Paperboy JA.</p>
+        
+        <div class="test-controls">
+            <h3>Test Controls</h3>
+            <button type="button" onclick="testLiveData()">Test Live Data</button>
+            <button type="button" onclick="testStaticData()">Test Static Data</button>
+            <button type="button" onclick="clearResults()">Clear Results</button>
+        </div>
+
+        <div id="status"></div>
+
+        <div class="rating-summary">
+            <span class="rating-number" id="live-rating">--</span>
+            <span class="rating-stars" id="live-stars">?????</span>
+            <span class="rating-count" id="live-count">Loading...</span>
+        </div>
+        
+        <div id="google-reviews-carousel" class="reviews-carousel"></div>
+    </div>
+
+    <script>
+        // Function to update rating display
+        function updateRatingDisplay(data) {
+            const ratingElement = document.getElementById('live-rating');
+            const starsElement = document.getElementById('live-stars');
+            const countElement = document.getElementById('live-count');
+            
+            if (ratingElement && data.rating) {
+                ratingElement.textContent = data.rating.toFixed(1);
+            }
+            
+            if (starsElement && data.rating) {
+                const fullStars = Math.floor(data.rating);
+                const hasHalfStar = data.rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                let stars = '?'.repeat(fullStars);
+                if (hasHalfStar) stars += '?';
+                stars += '?'.repeat(emptyStars);
+                
+                starsElement.textContent = stars;
+            }
+            
+            if (countElement && data.user_ratings_total) {
+                countElement.textContent = `${data.user_ratings_total} Google Reviews`;
+            }
+        }
+        
+        // Function to create review cards
+        function createReviewCards(reviews) {
+            const carousel = document.getElementById('google-reviews-carousel');
+            if (!carousel) {
+                console.error('Carousel element not found!');
+                return;
+            }
+            
+            // Clear existing content
+            carousel.innerHTML = '';
+            
+            reviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                const stars = '?'.repeat(review.rating) + '?'.repeat(5 - review.rating);
+                
+                // Use actual profile photo if available, otherwise generate avatar
+                const imageUrl = review.profile_photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.author_name)}&background=random`;
+                
+                card.innerHTML = `
+                    <div class="review-author">
+                        <img src="${imageUrl}" alt="${review.author_name}">
+                        <div><strong>${review.author_name}</strong></div>
+                    </div>
+                    <div class="review-stars">${stars}</div>
+                    <div class="review-text">${review.text}</div>
+                `;
+                carousel.appendChild(card);
+            });
+        }
+        
+        // Function to show status
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+        
+        // Function to test live data
+        async function testLiveData() {
+            showStatus('Testing live data from Google Reviews API...', 'info');
+            
+            try {
+                const response = await fetch('google-reviews-proxy.php');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Received data:', data);
+                
+                if (data.error) {
+                    showStatus(`Error: ${data.message}`, 'error');
+                } else {
+                    showStatus('Live data loaded successfully!', 'success');
+                }
+                
+                // Update rating display
+                updateRatingDisplay(data);
+                
+                // Create review cards
+                if (data.reviews && data.reviews.length > 0) {
+                    createReviewCards(data.reviews);
+                }
+                
+            } catch (error) {
+                console.error('Error fetching live reviews:', error);
+                showStatus(`Error: ${error.message}`, 'error');
+            }
+        }
+        
+        // Function to test static data
+        function testStaticData() {
+            showStatus('Loading static test data...', 'info');
+            
+            const staticData = {
+                rating: 4.8,
+                user_ratings_total: 151,
+                reviews: [
+                    {
+                        author_name: "John Smith",
+                        rating: 5,
+                        text: "Excellent service and quality! The team at Paperboy was professional and delivered exactly what we needed.",
+                        profile_photo_url: "https://ui-avatars.com/api/?name=John+Smith&background=random"
+                    },
+                    {
+                        author_name: "Sarah Johnson",
+                        rating: 5,
+                        text: "Very impressed with the print quality and fast turnaround time. Will definitely use their services again!",
+                        profile_photo_url: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=random"
+                    },
+                    {
+                        author_name: "Michael Brown",
+                        rating: 5,
+                        text: "Great experience working with Paperboy. Their attention to detail and customer service is outstanding.",
+                        profile_photo_url: "https://ui-avatars.com/api/?name=Michael+Brown&background=random"
+                    }
+                ]
+            };
+            
+            updateRatingDisplay(staticData);
+            createReviewCards(staticData.reviews);
+            showStatus('Static data loaded successfully!', 'success');
+        }
+        
+        // Function to clear results
+        function clearResults() {
+            document.getElementById('live-rating').textContent = '--';
+            document.getElementById('live-stars').textContent = '?????';
+            document.getElementById('live-count').textContent = 'Loading...';
+            document.getElementById('google-reviews-carousel').innerHTML = '';
+            document.getElementById('status').innerHTML = '';
+        }
+        
+        // Auto-load on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showStatus('Page loaded. Click "Test Live Data" to test the Google Reviews integration.', 'info');
+        });
+    </script>
+          <!-- Ecwid Scripts -->
+  <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?64309912&data_platform=code&data_date=2021-08-11" charset="utf-8"></script>
+  <script type="text/javascript">
+    Ecwid.init();
+    xSearch("id=my-search-64309912");
+  </script>
+  
+  <!-- Navigation JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Search overlay toggle
+      const searchToggle = document.getElementById('searchToggle');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const searchClose = document.getElementById('searchClose');
+      
+      if (searchToggle) {
+        searchToggle.addEventListener('click', function() {
+          searchOverlay.classList.add('active');
+        });
+      }
+      
+      if (searchClose) {
+        searchClose.addEventListener('click', function() {
+          searchOverlay.classList.remove('active');
+        });
+      }
+      
+      if (searchOverlay) {
+        searchOverlay.addEventListener('click', function(e) {
+          if (e.target === searchOverlay) {
+            searchOverlay.classList.remove('active');
+          }
+        });
+      }
+      
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenuToggle.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+        });
+      }
+      
+      // Mobile dropdown toggle
+      const mobileDropdownTriggers = document.querySelectorAll('.mobile-dropdown-trigger');
+      mobileDropdownTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+          const submenu = this.nextElementSibling;
+          if (submenu) {
+            submenu.classList.toggle('active');
+          }
+        });
+      });
+      
+      // Improved mega menu hover behavior with delay
+      const navDropdown = document.querySelector('.nav-item-dropdown');
+      const megaMenu = document.querySelector('.mega-menu');
+      let closeTimeout;
+      
+      if (navDropdown && megaMenu) {
+        navDropdown.addEventListener('mouseenter', function() {
+          clearTimeout(closeTimeout);
+          megaMenu.classList.add('mega-menu-active');
+        });
+        
+        megaMenu.addEventListener('mouseenter', function() {
+          clearTimeout(closeTimeout);
+          megaMenu.classList.add('mega-menu-active');
+        });
+        
+        navDropdown.addEventListener('mouseleave', function() {
+          closeTimeout = setTimeout(function() {
+            megaMenu.classList.remove('mega-menu-active');
+          }, 300);
+        });
+        
+        megaMenu.addEventListener('mouseleave', function() {
+          closeTimeout = setTimeout(function() {
+            megaMenu.classList.remove('mega-menu-active');
+          }, 300);
+        });
+      }
+    });
+  </script>
+  
+  <!-- Initialize inline search after page loads -->
+  <script type="text/javascript">
+    window.addEventListener('load', function() {
+      if (typeof xSearch !== 'undefined') {
+        xSearch("id=my-search-64309912-inline");
+      }
+    });
+  </script>
+  </body>
+</html>
